@@ -70,5 +70,5 @@ input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
 }
 
 .loader h3 {
-  color: #e65100;
+  color: #0c3666;
 }

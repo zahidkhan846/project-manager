@@ -13,8 +13,8 @@ function ProjectDetails() {
   if (!project) {
     return (
       <div className="container">
-        <h3>Can't find the Details...</h3>
-        <h2>Plese select a project from the following link...</h2>
+        <h2>Can't find the Details...</h2>
+        <h3>Plese select a project from the following link...</h3>
         <Link to="/" className="btn  orange darken-4">
           Project
         </Link>

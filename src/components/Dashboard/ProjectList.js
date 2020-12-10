@@ -11,8 +11,8 @@ function ProjectList({ projects }) {
         })
       ) : (
         <div className="loader center">
+          <Loader type="Oval" color="#0c3666" height={100} width={100} />
           <h3>Loading...</h3>
-          <Loader type="Oval" color="#e65100" height={100} width={100} />
         </div>
       )}
     </div>

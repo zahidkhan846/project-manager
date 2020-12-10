@@ -10,8 +10,8 @@ function SignIn() {
 
   return (
     <div className="container">
-      <form onSubmit={handleSingInSubmit} className="white">
-        <h5 className="grey-text text-darken-3">Sign In</h5>
+      <form onSubmit={handleSingInSubmit} className="form yellow lighten-2">
+        <h5 className="grey-text text-darken-2">Sign In</h5>
         <div className="input-field">
           <label htmlFor="email">Email</label>
           <input
@@ -31,7 +31,7 @@ function SignIn() {
           />
         </div>
         <div className="input-field">
-          <button className="btn pink lighten-1 z-depth-0">Login</button>
+          <button className="btn  orange darken-4 z-depth-0">Login</button>
         </div>
       </form>
     </div>

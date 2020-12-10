@@ -6,9 +6,10 @@ body {
   padding: 0;
   background: url(/src/image/bg.png) no-repeat;
   background-size: 100%;
-  background-position: bottom;
+  background-position: top;
   min-height: 100%;
 }
+
 form {
   width: 30rem;
   padding: 20px;
@@ -22,4 +23,52 @@ form h5 {
 
 span {
   text-transform: capitalize;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #e65100;
+  box-shadow: none;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
+  background-color: transparent;
+}
+
+.nav-wrapper {
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+.card {
+  background-color: #f5c05b;
+}
+
+.nav-wrapper li a {
+  color: black;
+  font-size: larger;
+}
+
+.nav-wrapper li a:hover,
+.nav-wrapper li a:active,
+.nav-wrapper li a.active {
+  background-color: transparent;
+  color: #e65100;
+}
+
+.form {
+  border-radius: 5px;
+}
+
+.loader {
+  margin-top: 30vh;
+}
+
+.loader h3 {
+  color: #e65100;
 }

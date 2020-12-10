@@ -5,10 +5,10 @@ import SignedOutLinks from "./SignedOutLinks";
 
 function Navbar() {
   return (
-    <nav className="nav-wrapper grey darken-3">
+    <nav className="nav-wrapper">
       <div className="container">
-        <Link to="/" className="brand-logo">
-          DashBoard
+        <Link to="/" className="brand-logo ">
+          Project Manager
         </Link>
         <SignedInLinks />
         <SignedOutLinks />

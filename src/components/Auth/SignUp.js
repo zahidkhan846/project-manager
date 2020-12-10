@@ -12,8 +12,8 @@ function SignUp() {
 
   return (
     <div className="container">
-      <form onSubmit={handleSingUpSubmit} className="white">
-        <h5 className="grey-text text-darken-3">Sign Up</h5>
+      <form onSubmit={handleSingUpSubmit} className="form yellow lighten-2">
+        <h5 className="grey-text text-darken-2">Sign Up</h5>
         <div className="input-field">
           <label htmlFor="firstName">First Name</label>
           <input
@@ -51,7 +51,7 @@ function SignUp() {
           />
         </div>
         <div className="input-field">
-          <button className="btn pink lighten-1 z-depth-0">Submit</button>
+          <button className="btn  orange darken-4 z-depth-0">Submit</button>
         </div>
       </form>
     </div>

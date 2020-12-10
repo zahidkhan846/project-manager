@@ -1,0 +1,4 @@
+// projct actions
+export const CREATE_NEW_PROJECT = "CREATE_NEW_PROJECT";
+export const FETCH_PROJECTS_START = "FETCH_PROJECTS_START";
+export const SET_ALL_PROJECTS = "SET_ALL_PROJECTS";

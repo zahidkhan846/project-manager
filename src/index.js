@@ -8,6 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import { watchProjects } from "./store/Saga/index";
+import AuthProvider from "./context/AuthContext";
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -22,9 +23,11 @@ saga.run(watchProjects);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
   </Provider>,
   document.getElementById("root")
 );

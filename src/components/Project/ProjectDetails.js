@@ -1,10 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import Loader from "react-loader-spinner";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchProjectsStart } from "../../store/Actions/projects";
 
 function ProjectDetails() {
   const projects = useSelector((state) => state.project.projects);
   const { id } = useParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProjectsStart());
+  }, [dispatch]);
 
   const project = projects.find((project) => {
     return project.id === id;
@@ -12,12 +20,9 @@ function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="container">
-        <h2>Can't find the Details...</h2>
-        <h3>Plese select a project from the following link...</h3>
-        <Link to="/" className="btn  orange darken-4">
-          Project
-        </Link>
+      <div className="loader center">
+        <Loader type="Oval" color="#0c3666" height={100} width={100} />
+        <h3>Loading...</h3>
       </div>
     );
   } else {

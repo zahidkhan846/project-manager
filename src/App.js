@@ -4,7 +4,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Error from "./components/404/404";
 import ProjectDetails from "./components/Project/ProjectDetails";
 import SignIn from "./components/Auth/SignIn";
-import SignUp from "./components/Auth/SignUp";
+import SignUp from "./components/Auth/Sign-Up";
 import NewProject from "./components/Project/NewProject";
 
 function App() {

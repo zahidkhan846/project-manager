@@ -22,12 +22,12 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(saga)));
 saga.run(watchProjects);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AuthProvider>
-      <BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>
+      <AuthProvider>
         <App />
-      </BrowserRouter>
-    </AuthProvider>
-  </Provider>,
+      </AuthProvider>
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );

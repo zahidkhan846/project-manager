@@ -25,21 +25,6 @@ span {
   text-transform: capitalize;
 }
 
-input[type="text"]:not(.browser-default):focus:not([readonly]),
-input[type="email"]:not(.browser-default):focus:not([readonly]),
-input[type="password"]:not(.browser-default):focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]) {
-  border-color: #e65100;
-  box-shadow: none;
-}
-
-input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label,
-input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
-input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
-  background-color: transparent;
-}
-
 .nav-wrapper {
   background-color: transparent;
   box-shadow: none !important;
@@ -71,4 +56,11 @@ input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
 
 .loader h3 {
   color: #0c3666;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset !important;
 }

@@ -1,8 +1,11 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 function SignUp() {
-  const { signUp } = useContext(AuthContext);
+  const { signUp, currentUser } = useContext(AuthContext);
+
+  const history = useHistory();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -11,6 +14,8 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  console.log(JSON.stringify(currentUser));
 
   const handleSingUpSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +26,7 @@ function SignUp() {
       setError("");
       setLoading(true);
       await signUp(email, password);
+      history.replace("/");
     } catch {
       setError("Failed to craeate an account");
     }
@@ -29,8 +35,9 @@ function SignUp() {
 
   return (
     <div className="container">
-      <form onSubmit={handleSingUpSubmit} className="form yellow lighten-2">
+      <form onSubmit={handleSingUpSubmit} className="form white">
         <h5 className="grey-text text-darken-2">Sign Up</h5>
+        {currentUser && currentUser.email}
         {error && <p>{error}</p>}
         <div className="input-field">
           <label htmlFor="firstName">First Name</label>

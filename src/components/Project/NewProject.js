@@ -23,7 +23,7 @@ function NewProject() {
 
   return (
     <div className="container">
-      <form onSubmit={handleSingUpSubmit} className="form yellow lighten-2">
+      <form onSubmit={handleSingUpSubmit} className="form white">
         <h5 className="grey-text text-darken-2">Create New Project</h5>
         <div className="input-field">
           <label htmlFor="authorFirstName">Author First Name</label>

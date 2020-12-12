@@ -1,14 +1,28 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function SignedInLinks() {
+  const { signOutUser } = useContext(AuthContext);
+
+  const history = useHistory();
+
+  const signOutUserHandler = async () => {
+    try {
+      await signOutUser();
+      history.push("/signin");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <ul className="right hide-on-med-and-down ">
       <li>
         <NavLink to="/new-project">New Project</NavLink>
       </li>
       <li>
-        <NavLink to="/logout">Logout</NavLink>
+        <a onClick={signOutUserHandler}>Logout</a>
       </li>
       <li>
         <NavLink to="/" className="btn btn-floating  orange darken-4">

@@ -11,17 +11,27 @@ function AuthProvider({ children }) {
     return auth.createUserWithEmailAndPassword(email, password);
   };
 
+  const signIn = (email, password) => {
+    return auth.signInWithEmailAndPassword(email, password);
+  };
+
+  const signOutUser = () => {
+    return auth.signOut();
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);
     });
     return unsubscribe;
-  }, []);
+  });
 
   const value = {
     currentUser,
     signUp,
+    signIn,
+    signOutUser,
   };
 
   return (

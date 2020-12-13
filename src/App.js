@@ -1,12 +1,14 @@
 import Navbar from "./components/Navbar/Navbar";
 import { Switch, Route } from "react-router-dom";
+import PrivateRoute from "./utils/PrivateRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Error from "./components/404/404";
-import ProjectDetails from "./components/Project/ProjectDetails";
 import SignIn from "./components/Auth/Sign-In";
 import SignUp from "./components/Auth/Sign-Up";
+import ForgotPassword from "./components/Auth/ForgotPassword";
+import ProjectDetails from "./components/Project/ProjectDetails";
 import NewProject from "./components/Project/NewProject";
-import PrivateRoute from "./utils/PrivateRoute";
+import Error from "./components/404/404";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -14,12 +16,14 @@ function App() {
       <Navbar />
       <Switch>
         <PrivateRoute exact path="/" component={Dashboard} />
-        <PrivateRoute path="/project/:id" component={ProjectDetails} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/forgot-password" component={ForgotPassword} />
         <PrivateRoute path="/new-project" component={NewProject} />
+        <PrivateRoute path="/project/:id" component={ProjectDetails} />
         <Route component={Error} />
       </Switch>
+      <Footer />
     </>
   );
 }

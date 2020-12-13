@@ -1,28 +1,26 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { Link } from "react-router-dom";
 
-function SignIn() {
-  const { signIn } = useContext(AuthContext);
+function ForgotPassword() {
+  const { resetPassword } = useContext(AuthContext);
 
   const history = useHistory();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSingInSubmit = async (e) => {
+  const handleForgetPassword = async (e) => {
     e.preventDefault();
 
     try {
       setError("");
       setLoading(true);
-      await signIn(email, password);
-      history.replace("/");
+      await resetPassword(email);
+      history.replace("/signin");
     } catch {
-      setError("Unable to sign in");
+      setError("Unable to change password");
     }
     setLoading(false);
   };
@@ -30,8 +28,8 @@ function SignIn() {
   return (
     <div className="page-layout">
       <div className="container">
-        <form onSubmit={handleSingInSubmit} className="form white">
-          <h5 className="grey-text text-darken-2">Sign In</h5>
+        <form onSubmit={handleForgetPassword} className="form white">
+          <h5 className="grey-text text-darken-2">Reset Password</h5>
           {error ? <p>{error}</p> : ""}
           <div className="input-field">
             <label htmlFor="email">Email</label>
@@ -43,37 +41,25 @@ function SignIn() {
             />
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="input-field">
             <button
               disabled={loading}
               className="btn  orange darken-4 z-depth-0"
+              type="submit"
             >
-              {loading ? "Logging In..." : "Sign In"}
+              {loading ? "Check your mail" : "Reset Password"}
             </button>
           </div>
           <div className="card z-depth-0 orange lighten-5">
             <div className="card-action">
               <h6 className="blue-text">
-                Need an account? <Link to="/signup">Sign Up</Link>
+                Go to your account? <Link to="/signin">Sign IN</Link>
               </h6>
             </div>
           </div>
-          <p className="black-text">
-            Forgaot Password?{" "}
-            <Link to="/forgot-password">Create New Password</Link>
-          </p>
         </form>
       </div>
     </div>
   );
 }
 
-export default SignIn;
+export default ForgotPassword;

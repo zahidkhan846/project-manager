@@ -64,3 +64,16 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px white inset !important;
 }
+
+.page-footer {
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+}
+
+.page-layout {
+  height: 100vh;
+}
+
+.form-card {
+  border-radius: 2rem;
+}

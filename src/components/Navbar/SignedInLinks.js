@@ -22,7 +22,9 @@ function SignedInLinks() {
         <NavLink to="/new-project">New Project</NavLink>
       </li>
       <li>
-        <a onClick={signOutUserHandler}>Logout</a>
+        <a onClick={signOutUserHandler} href="#!">
+          Logout
+        </a>
       </li>
       <li>
         <NavLink to="/" className="btn btn-floating  orange darken-4">

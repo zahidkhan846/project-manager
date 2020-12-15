@@ -27,7 +27,7 @@ function SignedInLinks() {
         </a>
       </li>
       <li>
-        <NavLink to="/" className="btn btn-floating  orange darken-4">
+        <NavLink to="/update-profile" className="btn btn-floating red darken-4">
           <strong style={{ color: "white" }}>ZK</strong>
         </NavLink>
       </li>

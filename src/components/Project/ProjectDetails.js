@@ -20,24 +20,28 @@ function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="loader center">
-        <Loader type="Oval" color="#0c3666" height={100} width={100} />
-        <h3>Loading...</h3>
+      <div className="page-layout">
+        <div className="loader center">
+          <Loader type="Oval" color="#F3160E" height={100} width={100} />
+          <h3 style={{ color: "#F3160E" }}>Loading...</h3>
+        </div>
       </div>
     );
   } else {
     return (
-      <div className="container section project-details">
-        <div className="card z-depth-0 white">
-          <div className="card-content">
-            <span className="card-title">{project.title}</span>
-            <p>{project.content}</p>
-            <br />
-            <hr />
-            <p>
-              Posted by {project.authorFirstName} {project.authorLastName}
-            </p>
-            <p>3rd November, 2020</p>
+      <div className="page-layout">
+        <div className="container section project-details">
+          <div className="card z-depth-0 white">
+            <div className="card-content">
+              <span className="card-title">{project.title}</span>
+              <p>{project.content}</p>
+              <br />
+              <hr />
+              <p>
+                Posted by {project.authorFirstName} {project.authorLastName}
+              </p>
+              <p>3rd November, 2020</p>
+            </div>
           </div>
         </div>
       </div>

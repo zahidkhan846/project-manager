@@ -24,7 +24,7 @@ function NewProject() {
   return (
     <div className="page-layout">
       <div className="container">
-        <form onSubmit={handleSingUpSubmit} className="form white">
+        <form onSubmit={handleSingUpSubmit} className="form red lighten-5">
           <h5 className="grey-text text-darken-2">Create New Project</h5>
           <div className="input-field">
             <label htmlFor="authorFirstName">Author First Name</label>
@@ -63,7 +63,7 @@ function NewProject() {
             ></textarea>
           </div>
           <div className="input-field">
-            <button className="btn  orange darken-4 z-depth-0">Submit</button>
+            <button className="btn yellow darken-2">Submit</button>
           </div>
         </form>
       </div>

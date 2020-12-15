@@ -6,8 +6,9 @@ body {
   padding: 0;
   background: url(/src/image/bg.png) no-repeat;
   background-size: 100%;
-  background-position: top;
+  background-position: bottom;
   min-height: 100%;
+  background-color: #eaf2f5;
 }
 
 form {
@@ -26,8 +27,7 @@ span {
 }
 
 .nav-wrapper {
-  background-color: transparent;
-  box-shadow: none !important;
+  background-color: #3f51b5;
 }
 
 .card {
@@ -35,7 +35,7 @@ span {
 }
 
 .nav-wrapper li a {
-  color: black;
+  color: white;
   font-size: larger;
 }
 
@@ -43,7 +43,7 @@ span {
 .nav-wrapper li a:active,
 .nav-wrapper li a.active {
   background-color: transparent;
-  color: #e65100;
+  color: #f1d06d;
 }
 
 .form {
@@ -62,7 +62,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px #ffebee inset !important;
 }
 
 .page-footer {

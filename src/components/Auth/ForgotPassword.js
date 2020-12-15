@@ -1,24 +1,24 @@
 import React, { useState, useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 function ForgotPassword() {
   const { resetPassword } = useContext(AuthContext);
 
-  const history = useHistory();
-
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleForgetPassword = async (e) => {
     e.preventDefault();
 
     try {
+      setMessage("");
       setError("");
       setLoading(true);
       await resetPassword(email);
-      history.replace("/signin");
+      setMessage("Check your inbox for further instructions");
     } catch {
       setError("Unable to change password");
     }
@@ -28,9 +28,13 @@ function ForgotPassword() {
   return (
     <div className="page-layout">
       <div className="container">
-        <form onSubmit={handleForgetPassword} className="form white">
+        <form onSubmit={handleForgetPassword} className="form red lighten-5">
           <h5 className="grey-text text-darken-2">Reset Password</h5>
-          {error ? <p>{error}</p> : ""}
+          {error ? (
+            <p className="red-text">{error}</p>
+          ) : (
+            <p className="green-text">{message}</p>
+          )}
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input
@@ -43,18 +47,16 @@ function ForgotPassword() {
           <div className="input-field">
             <button
               disabled={loading}
-              className="btn  orange darken-4 z-depth-0"
+              className="btn red darken-2"
               type="submit"
             >
               {loading ? "Check your mail" : "Reset Password"}
             </button>
           </div>
-          <div className="card z-depth-0 orange lighten-5">
-            <div className="card-action">
-              <h6 className="blue-text">
-                Go to your account? <Link to="/signin">Sign IN</Link>
-              </h6>
-            </div>
+          <div>
+            <h6>
+              Go to your account? <Link to="/signin">Sign In</Link>
+            </h6>
           </div>
         </form>
       </div>

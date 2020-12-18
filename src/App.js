@@ -9,6 +9,7 @@ import ProjectDetails from "./components/Project/ProjectDetails";
 import NewProject from "./components/Project/NewProject";
 import Error from "./components/404/404";
 import Footer from "./components/Footer/Footer";
+import UserProfile from "./components/Auth/UserProfile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/forgot-password" component={ForgotPassword} />
         <PrivateRoute path="/new-project" component={NewProject} />
         <PrivateRoute path="/project/:id" component={ProjectDetails} />
+        <PrivateRoute path="/user-profile/:id" component={UserProfile} />
         <Route component={Error} />
       </Switch>
       <Footer />

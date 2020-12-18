@@ -1,19 +1,33 @@
 import React, { createContext, useState, useEffect } from "react";
-import { auth } from "../config/firebaseConfig";
+import { auth, firestore } from "../config/firebaseConfig";
 
 export const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const signUp = (email, password) => {
-    return auth.createUserWithEmailAndPassword(email, password);
+  const signUp = (newUser) => {
+    return auth
+      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .then((res) =>
+        firestore
+          .collection("users")
+          .doc(res.user.uid)
+          .set({
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
+            initials: newUser.firstName[0] + newUser.lastName[0],
+            createdDate: new Date(),
+          })
+      )
+      .catch((err) => console.log(err));
   };
 
   const signIn = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
   };
+
   const resetPassword = (email) => {
     return auth.sendPasswordResetEmail(email);
   };
@@ -28,7 +42,7 @@ function AuthProvider({ children }) {
       setLoading(false);
     });
     return unsubscribe;
-  });
+  }, []);
 
   const value = {
     currentUser,

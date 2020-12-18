@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 function SignIn() {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, currentUser } = useContext(AuthContext);
 
   const history = useHistory();
 
@@ -26,6 +25,10 @@ function SignIn() {
     }
     setLoading(false);
   };
+
+  if (currentUser) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="page-layout">
@@ -62,7 +65,7 @@ function SignIn() {
             </h6>
           </div>
           <h6>
-            Forgot password?
+            Forgot password?{" "}
             <Link to="/forgot-password">Create New Password</Link>
           </h6>
         </form>

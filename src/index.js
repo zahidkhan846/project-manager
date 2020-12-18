@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import { watchProjects } from "./store/Saga/index";
 import AuthProvider from "./context/AuthContext";
+import thunk from "redux-thunk";
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -17,7 +18,10 @@ const composeEnhancers =
 
 const saga = createSagaMiddleware();
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(saga)));
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(saga, thunk))
+);
 
 saga.run(watchProjects);
 

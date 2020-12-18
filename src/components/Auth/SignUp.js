@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function SignUp() {
-  const { signUp } = useContext(AuthContext);
+  const { signUp, currentUser } = useContext(AuthContext);
 
   const history = useHistory();
 
@@ -24,13 +24,16 @@ function SignUp() {
     try {
       setError("");
       setLoading(true);
-      await signUp(email, password);
+      await signUp({ email, password, firstName, lastName });
       history.replace("/");
     } catch {
       setError("Failed to craeate an account");
     }
     setLoading(false);
   };
+  if (currentUser) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="page-layout">

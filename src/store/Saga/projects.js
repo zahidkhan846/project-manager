@@ -3,12 +3,12 @@ import { setProjects } from "../Actions/projects";
 import { put } from "redux-saga/effects";
 
 export function* createNewProjectSaga(action) {
-  const createNewProject = (product) => {
+  const createNewProject = (project) => {
     return new Promise((resolve, reject) => {
       firestore
         .collection("projects")
         .doc()
-        .set(product)
+        .set(project)
         .then(() => {
           resolve();
         })

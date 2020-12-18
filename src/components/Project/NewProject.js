@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createNewProject } from "./../../store/Actions/projects";
+import { AuthContext } from "../../context/AuthContext";
 
 function NewProject() {
+  const { currentUser } = useContext(AuthContext);
+  const { uid } = currentUser;
+
   const dispatch = useDispatch();
 
   const onCreateNewProject = (project) => dispatch(createNewProject(project));
@@ -17,7 +21,13 @@ function NewProject() {
 
   const handleSingUpSubmit = (e) => {
     e.preventDefault();
-    onCreateNewProject({ title, content, authorFirstName, authorLastName });
+    onCreateNewProject({
+      title,
+      content,
+      authorFirstName,
+      authorLastName,
+      uid,
+    });
     history.push("/");
   };
 
@@ -62,6 +72,7 @@ function NewProject() {
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
           </div>
+          <input id="uid" name="uid" type="hidden" value={uid} />
           <div className="input-field">
             <button className="btn yellow darken-2">Submit</button>
           </div>

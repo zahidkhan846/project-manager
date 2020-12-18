@@ -3,6 +3,7 @@ import Loader from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchProjectsStart } from "../../store/Actions/projects";
+import moment from "moment";
 
 function ProjectDetails() {
   const projects = useSelector((state) => state.project.projects);
@@ -40,7 +41,9 @@ function ProjectDetails() {
               <p>
                 Posted by {project.authorFirstName} {project.authorLastName}
               </p>
-              <p>3rd November, 2020</p>
+              <p>
+                Created Date: {moment(project.createdDate.toDate()).calendar()}
+              </p>
             </div>
           </div>
         </div>

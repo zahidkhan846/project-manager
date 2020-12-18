@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 function ProjectSummery({ project }) {
-  const { id, title, authorFirstName, authorLastName } = project;
+  const { id, title, authorFirstName, authorLastName, createdDate } = project;
 
   return (
     <Link to={`project/${id}`}>
@@ -13,7 +14,7 @@ function ProjectSummery({ project }) {
             <p>
               Created by {authorFirstName} {authorLastName}
             </p>
-            <p>on 3rd of November</p>
+            <p>on {moment(createdDate && createdDate.toDate()).calendar()}</p>
           </div>
         </div>
       </div>

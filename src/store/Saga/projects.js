@@ -26,7 +26,7 @@ export function* createNewProjectSaga(action) {
 }
 
 export function* fetchProjectsSaga() {
-  const fetchProjects = () => {
+  const fetchProjects = ({}) => {
     return new Promise((resolve, reject) => {
       firestore
         .collection("projects")

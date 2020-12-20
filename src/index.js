@@ -7,7 +7,7 @@ import rootReducer from "./store/Reducers/RootReducer";
 import createSagaMiddleware from "redux-saga";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import { watchProjects } from "./store/Saga/index";
+import { watchNotifications, watchProjects } from "./store/Saga/indexSaga";
 import AuthProvider from "./context/AuthContext";
 import thunk from "redux-thunk";
 
@@ -24,6 +24,7 @@ const store = createStore(
 );
 
 saga.run(watchProjects);
+saga.run(watchNotifications);
 
 ReactDOM.render(
   <BrowserRouter>

@@ -4,7 +4,7 @@ import Loader from "react-loader-spinner";
 
 function ProjectList({ projects }) {
   return (
-    <div className="project-list section">
+    <div className="section">
       {projects.length > 0 ? (
         projects.map((project) => {
           return <ProjectSummery project={project} key={project.id} />;

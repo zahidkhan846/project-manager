@@ -26,10 +26,12 @@ export function* createNewProjectSaga(action) {
 }
 
 export function* fetchProjectsSaga() {
-  const fetchProjects = ({}) => {
+  const fetchProjects = () => {
     return new Promise((resolve, reject) => {
       firestore
         .collection("projects")
+        .limit(6)
+        .orderBy("createdDate", "desc")
         .get()
         .then((snapshot) => {
           const allProjects = snapshot.docs.map((doc) => {

@@ -1,4 +1,4 @@
-import * as actionType from "../Actions/actionTypes";
+import * as actionTypes from "../Actions/actionTypes";
 
 const initialState = {
   projects: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 const ProjectReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionType.SET_ALL_PROJECTS:
+    case actionTypes.SET_ALL_PROJECTS:
       return {
         ...state,
         projects: action.projects,
